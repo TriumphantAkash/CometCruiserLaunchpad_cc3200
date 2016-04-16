@@ -53,7 +53,7 @@ void setup() {
 void loop() {
   // Check for sleep/wake command.
   while (Serial.available() > 0) {
-    char c = Serial.read();
+    char c = Serial.read(); 
     if (c == 'w') {
       Serial.println("Waking up!");
       gps_006.wake();
