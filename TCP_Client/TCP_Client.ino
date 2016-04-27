@@ -11,14 +11,30 @@ int pin = 0;
 int i;
 int value;
 
-char ssid[] = "Akash's network";     //  your network SSID (name)
+//char ssid[] = "Harigarakumar's iPhone";     //  your network SSID (name)
+//char pass[] = "Hariv3131";  // your network password
+
+char ssid[] = "NETGEAR77";     //  your network SSID (name)
 char pass[] = "india123";  // your network password
-uint16_t port = 6970;     // port number of the server
-IPAddress server(54, 174, 186, 244);   // IP Address of the server
+
+
+//uint16_t port = 6970;     // port number of the server
+//IPAddress server(54, 174, 186, 244);   // IP Address of the server
+
+uint16_t port = 7070;     // port number of the server
+IPAddress server(192, 168, 0, 20);   // IP Address of the server
+
+
 WiFiClient client;
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
 void setup() {
+  ///////////////////////////////////////////////GPS related//////////////////////////////////////////
+  while (!Serial);
+  Serial.begin(9600);
+  Serial1.begin(9600);
+  ////////////////////////////////////////////////////////////////////////////////////////////////////
+  
   Serial.begin(115200);
   //Initialize serial and wait for port to open:
   Serial.println("********** DEMO PRINT *************");
@@ -76,5 +92,24 @@ void setup() {
 void loop()
 {
   // put your main code here, to run repeatedly:
+  
+  if (Serial.available()) {
+    char c = Serial.read();
+    if(c == '$'){
+      client.print("\0\n$");
+    }
+    client.print(c);
+  }
+  
+  
+  
+  if (Serial1.available()) {
+    char c = Serial1.read();
+    if(c == '$'){
+      client.print("\0\n$");
+    }
+    client.print(c);
+  }
+  
   
 }
