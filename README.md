@@ -1,4 +1,4 @@
-# CometCruiserLaunchpad_cc3320
+# CometCruiserLaunchpad_cc3200
 TI launchpad cc3200 code
 https://www.youtube.com/watch?v=SS1AnFZq2Ac&feature=youtu.be
 
